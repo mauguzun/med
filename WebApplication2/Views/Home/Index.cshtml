@@ -10,7 +10,7 @@
 
     <div class="center-me">
 
-        <div class="row">
+        <div class="row" style="min-height:40px">
             <div class="history" id="history"></div>
         </div>
         <div class="row">
@@ -89,6 +89,7 @@
                 case "%":
                     putNumberOn = null;
 
+                case "%":
                 case "C":
                 case "=":
                     if (lastAction === char) {

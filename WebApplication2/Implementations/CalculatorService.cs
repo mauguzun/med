@@ -94,6 +94,8 @@ namespace Calculator.Implementations
                 case (char)Operations.Procents:
                     item.Number = this._result.Value / 100 * item.Number;
                     _SwithOperand(new Expression { Number = item.Number, Operand = lastMathAction });
+                    this._opertaionStack = new List<Expression>();
+
                     break;
 
                 case (char)Operations.Equally:
