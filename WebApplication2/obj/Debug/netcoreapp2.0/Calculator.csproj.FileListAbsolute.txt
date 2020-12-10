@@ -1,0 +1,16 @@
+D:\repos\WebApplication2\WebApplication2\obj\Debug\netcoreapp2.0\Calculator.csprojAssemblyReference.cache
+D:\repos\WebApplication2\WebApplication2\obj\Debug\netcoreapp2.0\Calculator.AssemblyInfoInputs.cache
+D:\repos\WebApplication2\WebApplication2\obj\Debug\netcoreapp2.0\Calculator.AssemblyInfo.cs
+D:\repos\WebApplication2\WebApplication2\obj\Debug\netcoreapp2.0\Calculator.csproj.CoreCompileInputs.cache
+D:\repos\WebApplication2\WebApplication2\bin\Debug\netcoreapp2.0\appsettings.Development.json
+D:\repos\WebApplication2\WebApplication2\bin\Debug\netcoreapp2.0\appsettings.json
+D:\repos\WebApplication2\WebApplication2\bin\Debug\netcoreapp2.0\bower.json
+D:\repos\WebApplication2\WebApplication2\bin\Debug\netcoreapp2.0\bundleconfig.json
+D:\repos\WebApplication2\WebApplication2\bin\Debug\netcoreapp2.0\Calculator.deps.json
+D:\repos\WebApplication2\WebApplication2\bin\Debug\netcoreapp2.0\Calculator.runtimeconfig.json
+D:\repos\WebApplication2\WebApplication2\bin\Debug\netcoreapp2.0\Calculator.runtimeconfig.dev.json
+D:\repos\WebApplication2\WebApplication2\bin\Debug\netcoreapp2.0\Calculator.dll
+D:\repos\WebApplication2\WebApplication2\bin\Debug\netcoreapp2.0\Calculator.pdb
+D:\repos\WebApplication2\WebApplication2\obj\Debug\netcoreapp2.0\Calculator.dll
+D:\repos\WebApplication2\WebApplication2\obj\Debug\netcoreapp2.0\Calculator.pdb
+D:\repos\WebApplication2\WebApplication2\obj\Debug\netcoreapp2.0\Calculator.genruntimeconfig.cache

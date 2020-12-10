@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <link href="~/site.css" rel="stylesheet" />
+</head>
+<body>
+
+
+
+    <div class="center-me">
+
+        <div class="row">
+            <div class="history" id="history"></div>
+        </div>
+        <div class="row">
+            <div class="display" id="display">0</div>
+        </div>
+        <div class="row">
+            @foreach (var item in new string[] { "%", "CE", "C", "/" })
+            {
+                <div class="button color" id="@item">@item</div>
+            }
+        </div>
+
+        <div class="row">
+            @foreach (var item in new string[] { "7", "8", "9", "*" })
+            {
+                <div class="button color" id="@item">@item</div>
+            }
+        </div>
+        <div class="row">
+            @foreach (var item in new string[] { "4", "5", "6", "-" })
+            {
+                <div class="button color" id="@item">@item</div>
+            }
+        </div>
+        <div class="row">
+            @foreach (var item in new string[] { "1", "2", "3", "+" })
+            {
+                <div class="button color" id="@item">@item</div>
+            }
+        </div>  <div class="row">
+            @foreach (var item in new string[] { "±", "0", ".", "=" })
+            {
+                <div class="button color" id="@item">@item</div>
+            }
+        </div>
+
+
+    </div>
+
+
+
+</body>
+</html>
+
+
+<script>
+
+    let number = null;
+    let lastAction = null;
+    let putNumberOn = null;
+
+    const display = document.getElementById("display");
+    const history = document.getElementById("history");
+    const buttons = document.querySelectorAll(".button");
+
+
+    for (const button of buttons) {
+        button.addEventListener('click', (event) => {
+
+            const char = event.target.id;
+
+            switch (char) {
+
+                case "±":
+                    unsign();
+                    break;
+
+                case "CE":
+                    lastAction = null;
+                    number = 0;
+                    display.innerHTML = number;
+                    break;
+
+                case "C":
+                case "=":
+                case "%":
+                    putNumberOn = null;
+
+                case "C":
+                case "=":
+                    if (lastAction === char) {
+                        number = 0;
+                        clearHistory();
+                        return;
+                    }
+
+                case "*":
+                case "/":
+                case "+":
+                case "%":
+                case "=":
+                case "-":
+                case "C":
+                    request(char)
+                    lastAction = char;
+                    break;
+
+                default:
+                    if (lastAction === "=" | lastAction === "%") {
+                        number =null;
+                        clearHistory();
+                    } 
+                      setNumber(char);
+                    
+            }
+
+
+        })
+    }
+    function clearHistory() {
+        lastAction = null;
+        history.innerHTML = ""
+        displayResult();
+    }
+
+    function request(operand, append = null) {
+        if (number) {
+            fetch("api/Calculator",
+                {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: (JSON.stringify({ "Number": number, "Operand": operand }))
+                })
+                .then(answer => answer.json())
+                .then(answer => {
+                    const result = JSON.parse(answer);
+                    putNumberOn = true;
+                    number = result.Result.toString();
+                    history.innerHTML = result.History;
+                    displayResult();
+
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
+
+
+    }
+
+    function displayResult() {
+        display.innerHTML = number;
+    }
+
+    function unsign() {
+        number = number.startsWith("-") ? number.replace("-", "") : `-${number}`;
+        displayResult()
+    }
+
+    function setNumber() {
+
+        if (number === null) {
+            number = event.target.id;
+        } else {
+            number = (putNumberOn) ? event.target.id : number + event.target.id;
+        }
+        putNumberOn = false;
+        this.displayResult();
+    }
+
+
+
+
+
+</script>

@@ -1,0 +1,48 @@
+﻿body, html {
+    height: 100%;
+    display: grid;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.center-me {
+    margin: auto;
+    width: 300px
+}
+
+.display {
+    flex: 1;
+    font-size: 30px;
+    text-align: right;
+}
+
+.history {
+    flex: 1;
+    font-size: 13px;
+    text-align: right;
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.color {
+    background-color: silver;
+    color: white;
+}
+
+.button {
+    flex: 1;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.button:hover {
+    box-shadow: 0 3px 14px rgba(0,0,0,.25), 0 5px 5px rgba(0,0,0,.22);
+}
